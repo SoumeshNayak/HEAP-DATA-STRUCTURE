@@ -23,6 +23,34 @@ class MaxHeap {
             ind=ind/2;
         }
     }
+    public void heapPop(){
+        if(size==0){
+            System.out.println("Heap is empty");
+            return;
+        }
+        System.out.println(heap[1]);
+        heap[1]=heap[size];
+        size--;
+        int ind=1;
+        while(ind<size){
+            int leftInd=2*ind;
+            int rightInd=2*ind+1;
+            
+            if(leftInd<size && heap[ind]<heap[leftInd]){
+                int temp=heap[ind];
+                heap[ind]=heap[leftInd];
+                heap[leftInd]=temp;
+                ind=leftInd;
+            }else if(rightInd<size && heap[ind]<heap[rightInd]){
+                 int temp=heap[ind];
+                heap[ind]=heap[rightInd];
+                heap[rightInd]=temp;
+                ind=rightInd;
+            }else{
+                return;
+            }
+        }
+    }
     public void print(){
         for (int i = 1; i <= size; i++) {
             System.out.print(heap[i] + " ");
@@ -36,6 +64,11 @@ class MaxHeap {
         maxheap.insert(52);
         maxheap.insert(53);
         maxheap.insert(55);
+        maxheap.print();
+        
+        maxheap.heapPop();
+        maxheap.heapPop();
+        maxheap.insert(80);
         maxheap.print();
         
     }
