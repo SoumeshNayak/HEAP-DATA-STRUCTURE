@@ -1,0 +1,50 @@
+class Stack {
+    int size;
+     int arr[];
+     int top;
+    Stack(int size){
+        this.size=size;
+        arr=new int[size];
+        top=-1;
+    }
+    public  void add(int data){
+        if(size-top>1){
+            top++;
+            arr[top]=data;
+        }else{
+            System.out.println("Can't add data");
+        }
+    }
+    public  void pop(){
+        if(top==-1){
+            System.out.println("Can't pop because st is empty");
+        }else{
+            System.out.println("pop ele is " + " " + arr[top]);
+            top--;
+        }
+    }
+    public  void top(){
+        if(top==-1){
+            System.out.println("St is empty");
+        }else{
+            System.out.println("Top ele is " + " " + arr[top]);
+        }
+    }
+    public  void isEmpty(){
+        if(top==-1){
+            System.out.println("True");
+        }else{
+        System.out.println("False");
+        }
+    }
+    public static void main(String[] args) {
+        Stack st=new Stack(5);
+        st.add(3);
+        st.add(4);
+        st.add(5);
+        st.top();
+        st.pop();
+        st.top();
+        st.isEmpty();
+    }
+}
